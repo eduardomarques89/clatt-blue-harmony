@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
+              onClick={() => setIsSearchOpen(true)}
               className="text-clatt-white hover:bg-clatt-white/10 transition-all"
             >
               <Search className="h-6 w-6" />
@@ -150,6 +152,87 @@ const Header = () => {
                   </div>
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Search Overlay */}
+      {isSearchOpen && (
+        <div className="fixed inset-0 z-50 bg-clatt-blue">
+          <div className="container mx-auto px-6 py-4">
+            <div className="flex items-center justify-between mb-16">
+              {/* Empty space for alignment */}
+              <div className="w-10"></div>
+
+              {/* Logo */}
+              <div className="text-clatt-white font-light text-2xl tracking-wider">
+                CLATT
+                <div className="text-xs text-center tracking-widest opacity-80">
+                  HOTEL DESIGN LUXE
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsSearchOpen(false)}
+                className="text-clatt-white hover:bg-clatt-white/10 transition-all"
+              >
+                <X className="h-6 w-6" />
+              </Button>
+            </div>
+
+            {/* Search Content */}
+            <div className="flex flex-col items-center justify-center h-full max-w-2xl mx-auto">
+              <div className="w-full bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20">
+                <h2 className="text-clatt-white text-2xl font-light tracking-wide mb-6 text-center">
+                  Reserve Sua Estadia
+                </h2>
+                
+                <div className="space-y-6">
+                  {/* Date Selection */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-clatt-white/80 text-sm font-light mb-2 block">
+                        Check-in
+                      </label>
+                      <input
+                        type="date"
+                        className="w-full bg-white/20 border border-white/30 text-clatt-white placeholder-clatt-white/60 rounded-md px-4 py-3 focus:outline-none focus:border-white/50 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-clatt-white/80 text-sm font-light mb-2 block">
+                        Check-out
+                      </label>
+                      <input
+                        type="date"
+                        className="w-full bg-white/20 border border-white/30 text-clatt-white placeholder-clatt-white/60 rounded-md px-4 py-3 focus:outline-none focus:border-white/50 transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Guests Selection */}
+                  <div>
+                    <label className="text-clatt-white/80 text-sm font-light mb-2 block">
+                      Hóspedes
+                    </label>
+                    <select className="w-full bg-white/20 border border-white/30 text-clatt-white rounded-md px-4 py-3 focus:outline-none focus:border-white/50 transition-all">
+                      <option value="2-adultos-0-criancas" className="text-clatt-dark">2 Adultos, 0 Crianças</option>
+                      <option value="1-adulto-0-criancas" className="text-clatt-dark">1 Adulto, 0 Crianças</option>
+                      <option value="2-adultos-1-crianca" className="text-clatt-dark">2 Adultos, 1 Criança</option>
+                      <option value="2-adultos-2-criancas" className="text-clatt-dark">2 Adultos, 2 Crianças</option>
+                    </select>
+                  </div>
+
+                  {/* Search Button */}
+                  <Button className="w-full bg-white text-clatt-blue hover:bg-white/90 transition-all font-medium py-6 text-lg">
+                    Pesquisar Disponibilidade
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
