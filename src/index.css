@@ -2,14 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Clatt Hotel Design System - Luxury Hotel Inspired */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Brand Colors */
+    --clatt-blue: 215 62% 37%;
+    --clatt-white: 60 33% 98%;
+    --clatt-dark: 215 62% 15%;
+    --clatt-light-blue: 215 62% 85%;
+    
+    /* Core Design Tokens */
+    --background: 60 33% 98%;
+    --foreground: 215 62% 15%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,17 +22,25 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 215 62% 37%;
+    --primary-foreground: 60 33% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 60 33% 98%;
+    --secondary-foreground: 215 62% 37%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 62% 85%;
+    --muted-foreground: 215 62% 25%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 215 62% 85%;
+    --accent-foreground: 215 62% 15%;
+    
+    /* Custom Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--clatt-blue)) 0%, hsl(var(--clatt-dark)) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(var(--clatt-blue) / 0.8) 100%);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-header: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;

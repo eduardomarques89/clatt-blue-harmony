@@ -1,12 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <HeroSection />
+      
+      {/* Temporary content section to test scroll behavior */}
+      <section className="min-h-screen bg-clatt-white flex items-center justify-center">
+        <div className="text-center px-6">
+          <h2 className="text-4xl font-light text-clatt-blue mb-4 tracking-wide">
+            Experiência Clatt
+          </h2>
+          <p className="text-lg text-clatt-dark/70 max-w-2xl mx-auto">
+            Descubra um novo padrão de excelência em hospitalidade de luxo
+          </p>
+        </div>
+      </section>
     </div>
   );
 };
