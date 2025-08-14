@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, Search, X } from 'lucide-react';
+import { Menu, Search, X, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,12 +17,12 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    'Sobre o Clatt',
-    'Acomodações',
-    'Experiências',
-    'Sustentabilidade',
-    'Corporativo',
-    'Reservas'
+    { name: 'Sobre o Clatt', hasSubmenu: false },
+    { name: 'Acomodações', hasSubmenu: true, submenu: ['Suítes Premium', 'Quartos Executivos', 'Apartamentos'] },
+    { name: 'Experiências', hasSubmenu: true, submenu: ['Spa & Wellness', 'Gastronomia', 'Eventos Exclusivos'] },
+    { name: 'Sustentabilidade', hasSubmenu: false },
+    { name: 'Corporativo', hasSubmenu: true, submenu: ['Salas de Reunião', 'Eventos Corporativos', 'Pacotes Empresariais'] },
+    { name: 'Reservas', hasSubmenu: false }
   ];
 
   return (
@@ -95,19 +96,61 @@ const Header = () => {
               </Button>
             </div>
 
-            {/* Menu Items */}
-            <nav className="flex flex-col items-center space-y-8">
-              {menuItems.map((item, index) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="text-clatt-white text-xl font-light tracking-wide hover:opacity-70 transition-opacity"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </nav>
+            {/* Menu Content */}
+            <div className="flex h-full">
+              {/* Main Menu */}
+              <nav className="flex flex-col items-center justify-center space-y-8 flex-1">
+                {menuItems.map((item, index) => (
+                  <div key={item.name} className="flex items-center">
+                    {item.hasSubmenu ? (
+                      <button
+                        onClick={() => setActiveSubmenu(activeSubmenu === item.name ? null : item.name)}
+                        className="text-clatt-white text-xl font-light tracking-wide hover:opacity-70 transition-opacity flex items-center gap-2"
+                      >
+                        {item.name}
+                        <ChevronRight 
+                          className={`h-5 w-5 transition-transform duration-300 ${
+                            activeSubmenu === item.name ? 'rotate-90' : ''
+                          }`} 
+                        />
+                      </button>
+                    ) : (
+                      <a
+                        href={`#${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="text-clatt-white text-xl font-light tracking-wide hover:opacity-70 transition-opacity"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </nav>
+
+              {/* Submenu Panel */}
+              {activeSubmenu && (
+                <div className="flex">
+                  {/* White Divider */}
+                  <div className="w-px bg-clatt-white/20 mx-8"></div>
+                  
+                  {/* Submenu Content */}
+                  <div className="flex flex-col justify-center space-y-6 min-w-[200px]">
+                    {menuItems
+                      .find(item => item.name === activeSubmenu)
+                      ?.submenu?.map((subItem, index) => (
+                        <a
+                          key={subItem}
+                          href={`#${subItem.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="text-clatt-white/80 text-lg font-light tracking-wide hover:text-clatt-white hover:opacity-70 transition-all"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {subItem}
+                        </a>
+                      ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
