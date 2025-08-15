@@ -1,12 +1,13 @@
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import RoomsSection from '@/components/RoomsSection';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      
+      <RoomsSection />
       {/* Temporary content section to test scroll behavior */}
       <section className="min-h-screen bg-clatt-white flex items-center justify-center">
         <div className="text-center px-6">
