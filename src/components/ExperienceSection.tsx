@@ -16,13 +16,6 @@ const ExperienceSection = () => {
       description: "Espaços elegantes e funcionais para eventos corporativos, reuniões de negócios e apresentações. Equipadas com tecnologia de ponta e ambiente profissional de alta qualidade.",
       image: "/lovable-uploads/fd757ea0-2f82-438f-ba60-29ba000a8139.png",
       buttonText: "Saiba Mais"
-    },
-    {
-      id: 3,
-      name: "Spa & Wellness",
-      description: "Santuário de bem-estar com tratamentos exclusivos e ambiente tranquilo. Experimente nossos serviços de relaxamento e rejuvenescimento em um espaço dedicado ao seu bem-estar.",
-      image: "/lovable-uploads/fd757ea0-2f82-438f-ba60-29ba000a8139.png",
-      buttonText: "Saiba Mais"
     }
   ];
 
@@ -37,7 +30,7 @@ const ExperienceSection = () => {
         </div>
 
         {/* Experience Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {experiences.map((experience) => (
             <Card key={experience.id} className="border-none shadow-none bg-transparent group cursor-pointer">
               <CardContent className="p-0">
