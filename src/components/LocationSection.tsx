@@ -1,4 +1,5 @@
 import { MapPin, Heart, Coffee, Car } from 'lucide-react';
+import MapComponent from './MapComponent';
 
 const LocationSection = () => {
   return (
@@ -15,7 +16,7 @@ const LocationSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Address & Info */}
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
@@ -41,49 +42,57 @@ const LocationSection = () => {
                   atrações da cidade.
                 </p>
               </div>
+
+              {/* City Highlights */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center space-y-3">
+                  <Heart className="w-8 h-8 text-clatt-white mx-auto" />
+                  <h4 className="text-lg font-light text-clatt-white">
+                    Águas Termais
+                  </h4>
+                  <p className="text-sm text-clatt-white/80">
+                    Famosa estância hidromineral
+                  </p>
+                </div>
+
+                <div className="text-center space-y-3">
+                  <Coffee className="w-8 h-8 text-clatt-white mx-auto" />
+                  <h4 className="text-lg font-light text-clatt-white">
+                    Gastronomia Local
+                  </h4>
+                  <p className="text-sm text-clatt-white/80">
+                    Rica tradição culinária
+                  </p>
+                </div>
+
+                <div className="text-center space-y-3">
+                  <Car className="w-8 h-8 text-clatt-white mx-auto" />
+                  <h4 className="text-lg font-light text-clatt-white">
+                    Acesso Fácil
+                  </h4>
+                  <p className="text-sm text-clatt-white/80">
+                    Localização privilegiada
+                  </p>
+                </div>
+
+                <div className="text-center space-y-3">
+                  <MapPin className="w-8 h-8 text-clatt-white mx-auto" />
+                  <h4 className="text-lg font-light text-clatt-white">
+                    Centro Histórico
+                  </h4>
+                  <p className="text-sm text-clatt-white/80">
+                    Pontos turísticos próximos
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column - City Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              <div className="text-center space-y-3">
-                <Heart className="w-8 h-8 text-clatt-white mx-auto" />
-                <h4 className="text-lg font-light text-clatt-white">
-                  Águas Termais
-                </h4>
-                <p className="text-sm text-clatt-white/80">
-                  Famosa estância hidromineral com propriedades terapêuticas
-                </p>
-              </div>
-
-              <div className="text-center space-y-3">
-                <Coffee className="w-8 h-8 text-clatt-white mx-auto" />
-                <h4 className="text-lg font-light text-clatt-white">
-                  Gastronomia Local
-                </h4>
-                <p className="text-sm text-clatt-white/80">
-                  Rica tradição culinária com sabores autênticos do interior
-                </p>
-              </div>
-
-              <div className="text-center space-y-3">
-                <Car className="w-8 h-8 text-clatt-white mx-auto" />
-                <h4 className="text-lg font-light text-clatt-white">
-                  Acesso Fácil
-                </h4>
-                <p className="text-sm text-clatt-white/80">
-                  Localização privilegiada com fácil acesso às principais rodovias
-                </p>
-              </div>
-
-              <div className="text-center space-y-3">
-                <MapPin className="w-8 h-8 text-clatt-white mx-auto" />
-                <h4 className="text-lg font-light text-clatt-white">
-                  Centro Histórico
-                </h4>
-                <p className="text-sm text-clatt-white/80">
-                  Próximo aos principais pontos turísticos e culturais da cidade
-                </p>
-              </div>
+            {/* Right Column - Map */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-light text-clatt-white text-center">
+                Nossa Localização
+              </h3>
+              <MapComponent />
             </div>
           </div>
         </div>
