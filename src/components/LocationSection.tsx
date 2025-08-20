@@ -1,5 +1,4 @@
 import { MapPin, Heart, Coffee, Car } from 'lucide-react';
-import MapComponent from './MapComponent';
 
 const LocationSection = () => {
   return (
@@ -92,7 +91,18 @@ const LocationSection = () => {
               <h3 className="text-xl font-light text-clatt-white text-center">
                 Nossa Localização
               </h3>
-              <MapComponent />
+              <div className="w-full rounded-lg overflow-hidden shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3699.4590830106863!2d-46.791852!3d-21.993714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c9cb3f015b8555%3A0xdec2b6e8dae6987c!2sClatt%20Hotel!5e0!3m2!1spt-BR!2sbr!4v1755709239199!5m2!1spt-BR!2sbr" 
+                  width="100%" 
+                  height="400" 
+                  style={{border: 0}} 
+                  allowFullScreen={true} 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-96"
+                />
+              </div>
             </div>
           </div>
         </div>
