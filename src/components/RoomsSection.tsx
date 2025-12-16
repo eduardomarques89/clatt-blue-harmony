@@ -1,24 +1,25 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const RoomsSection = () => {
   const rooms = [
     {
-      id: 1,
+      id: 'executivo',
       name: "Quartos Executivos",
       description: "Conforto e funcionalidade em ambientes projetados para o seu descanso e produtividade. Ideal para viajantes a trabalho que valorizam eficiência e bem-estar.",
       image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
       buttonText: "Saiba Mais"
     },
     {
-      id: 2,
+      id: 'premium',
       name: "Suítes Premium",
       description: "Elegância e exclusividade com espaços amplos, decoração refinada e serviços diferenciados. Perfeitas para estadias que pedem uma experiência superior.",
       image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
       buttonText: "Saiba Mais"
     },
     {
-      id: 3,
+      id: 'cobertura',
       name: "Cobertura Luxo",
       description: "Exclusividade e sofisticação no ponto mais alto, com vistas deslumbrantes e terraço privativo. A escolha definitiva para uma experiência de luxo incomparável.",
       image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
@@ -60,12 +61,14 @@ const RoomsSection = () => {
                     {room.description}
                   </p>
 
-                  <Button 
-                    variant="ghost" 
-                    className="text-clatt-dark hover:text-clatt-blue border-b border-clatt-dark/30 hover:border-clatt-blue rounded-none px-0 pb-1 font-light tracking-wide transition-all"
-                  >
-                    {room.buttonText}
-                  </Button>
+                  <Link to={`/quartos/${room.id}`}>
+                    <Button 
+                      variant="ghost" 
+                      className="text-clatt-dark hover:text-clatt-blue border-b border-clatt-dark/30 hover:border-clatt-blue rounded-none px-0 pb-1 font-light tracking-wide transition-all"
+                    >
+                      {room.buttonText}
+                    </Button>
+                  </Link>
                 </div>
               </CardContent>
             </Card>
