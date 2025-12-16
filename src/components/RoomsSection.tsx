@@ -1,34 +1,11 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { rooms } from '@/data/rooms';
 
 const RoomsSection = () => {
-  const rooms = [
-    {
-      id: 'executivo',
-      name: "Quartos Executivos",
-      description: "Conforto e funcionalidade em ambientes projetados para o seu descanso e produtividade. Ideal para viajantes a trabalho que valorizam eficiência e bem-estar.",
-      image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
-      buttonText: "Saiba Mais"
-    },
-    {
-      id: 'premium',
-      name: "Suítes Premium",
-      description: "Elegância e exclusividade com espaços amplos, decoração refinada e serviços diferenciados. Perfeitas para estadias que pedem uma experiência superior.",
-      image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
-      buttonText: "Saiba Mais"
-    },
-    {
-      id: 'cobertura',
-      name: "Cobertura Luxo",
-      description: "Exclusividade e sofisticação no ponto mais alto, com vistas deslumbrantes e terraço privativo. A escolha definitiva para uma experiência de luxo incomparável.",
-      image: "/lovable-uploads/7ea5b64d-566e-4e56-9d9f-bf5b225d33dc.png",
-      buttonText: "Saiba Mais"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-clatt-white">
+    <section id="quartos" className="py-20 bg-clatt-white">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-16">
@@ -39,7 +16,7 @@ const RoomsSection = () => {
 
         {/* Rooms Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {rooms.map((room) => (
+          {rooms.slice(0, 3).map((room) => (
             <Card key={room.id} className="border-none shadow-none bg-transparent group cursor-pointer">
               <CardContent className="p-0">
                 {/* Room Image */}
@@ -73,6 +50,18 @@ const RoomsSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Ver Todos Button */}
+        <div className="text-center mt-12">
+          <Link to="/quartos">
+            <Button 
+              variant="outline" 
+              className="border-clatt-dark text-clatt-dark hover:bg-clatt-dark hover:text-clatt-white px-8 py-6 tracking-wide"
+            >
+              Ver Todos os Quartos
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
